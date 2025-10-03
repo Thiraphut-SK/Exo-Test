@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #F7FCF8;
+}
+
+@config "../../tailwind.config.js"
+
