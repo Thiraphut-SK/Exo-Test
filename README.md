@@ -4,7 +4,7 @@
 To clone the project, run the following command:
 
 ```bash
-git clone https://github.com/heroui-inc/vite-template.git
+git clone https://github.com/Thiraphut-SK/Exo-Test.git
 ```
 
 ### Install dependencies
