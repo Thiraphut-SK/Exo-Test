@@ -2,7 +2,7 @@ import { Avatar, Card, CardBody, CardHeader } from "@heroui/react";
 
 interface SalespersonCardProps {
   name: string;
-  role: string;
+  role?: string;
   initials?: string;
 }
 

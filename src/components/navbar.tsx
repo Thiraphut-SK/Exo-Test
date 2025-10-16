@@ -10,6 +10,15 @@ import { Button } from "@heroui/button";
 
 import Logo from "/EXO_logo_green.png";
 
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+} from "@heroui/react";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+
 export const Navbar = ({
   isOpen,
   setIsOpen,
@@ -17,6 +26,18 @@ export const Navbar = ({
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/login");
+    } catch (error) {
+      alert("Invalid credentials");
+    }
+  };
+
   return (
     <HeroUINavbar isBordered maxWidth="2xl" position="static">
       <NavbarBrand>
@@ -43,7 +64,24 @@ export const Navbar = ({
           >
             Login
           </Button> */}
-          <Avatar name="JD" />
+          <Dropdown placement="bottom-end">
+            <DropdownTrigger>
+              <Avatar
+                as="button"
+                className="transition-transform hover:cursor-pointer"
+                name="JD"
+              />
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Profile Actions" variant="flat">
+              <DropdownItem
+                key="logout"
+                color="danger"
+                onPress={() => handleLogout()}
+              >
+                Log Out
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </NavbarItem>
       </NavbarContent>
     </HeroUINavbar>

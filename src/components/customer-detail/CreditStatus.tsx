@@ -14,12 +14,13 @@ export default function CreditStatus({
   // Map creditStatus string to allowed Chip color values
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
-      case "success":
+      case "good credit":
         return "bg-green-100 text-green-800 border-brand-success";
-      case "warning":
-      case "pending":
+      case "no credit":
+        return "bg-blue-100 text-blue-800 border-brand-primary";
+      case "pending review":
         return "bg-yellow-100 text-yellow-800 border-brand-warning ";
-      case "error":
+      case "overdue":
       case "canceled":
         return "bg-red-100 text-red-800 border-red-800";
       default:
@@ -36,16 +37,18 @@ export default function CreditStatus({
         <div
           className={`${getStatusColor(creditStatus)} border-1.5 p-2 rounded flex items-center gap-2`}
         >
-          {creditStatus === "error" ? (
+          {creditStatus === "Overdue" ? (
             <ErrorIcon />
-          ) : creditStatus === "success" ? (
+          ) : creditStatus === "Good Credit" ? (
             <SuccessIcon />
           ) : (
             <WarningIcon />
           )}
           {/* <WarningIcon /> */}
           <div className="my-2 text-left">
-            {description && <p className="text-xs">{description}</p>}
+            {description && (
+              <p className="text-xs font-semibold">{description}</p>
+            )}
             <p className="text-xs text-gray-400">payment terms active</p>
           </div>
         </div>

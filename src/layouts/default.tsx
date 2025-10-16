@@ -20,7 +20,7 @@ export default function DefaultLayout({
           <nav className="flex flex-col space-y-2 p-4">
             <a
               className="flex items-center gap-2 p-2 rounded hover:bg-brand-secondary"
-              href="/"
+              href="/customers"
             >
               {/* <FaUsers /> */}
               Customers

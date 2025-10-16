@@ -8,7 +8,7 @@ import {
   ReportIcon,
   SubscribeIcon,
 } from "../icons";
-import formatDate from "../formatDate";
+// import formatDate from "../formatDate";
 
 interface Activity {
   action: string;
@@ -72,7 +72,7 @@ export default function RecentActivity({ activities }: RecentActivityProps) {
               {getIcon(a.action)}
               <div>
                 <p className="text-sm font-medium">{a.action}</p>
-                <p className="text-xs text-gray-500">{formatDate(a.time)}</p>
+                <p className="text-xs text-gray-500">{a.time}</p>
               </div>
             </li>
           ))}
